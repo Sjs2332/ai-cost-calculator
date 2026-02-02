@@ -84,7 +84,17 @@ export default function ApiSetupModal() {
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="apiKey">OpenAI API Key</Label>
+                            <div className="flex justify-between items-center">
+                                <Label htmlFor="apiKey">OpenAI API Key</Label>
+                                <a
+                                    href="https://openai.com/api/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-xs text-primary hover:underline"
+                                >
+                                    Get API Key
+                                </a>
+                            </div>
                             <div className="relative">
                                 <Key className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                                 <Input
