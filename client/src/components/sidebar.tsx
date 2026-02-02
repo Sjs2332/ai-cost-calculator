@@ -6,7 +6,7 @@ export default function Sidebar() {
   const [location, setLocation] = useLocation();
 
   const handleViewRepo = () => {
-    window.open("https://github.com/Sjs2332", "_blank");
+    window.open("https://github.com/Sjs2332/ai-cost-calculator", "_blank");
   };
 
   const isActive = (path: string) => location === path;
