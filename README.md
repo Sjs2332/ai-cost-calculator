@@ -10,23 +10,27 @@
 
 ## Interface
 
-<div align="center">
-  <div>
-    <img src="client/public/model-popup.png" alt="Model Selection" width="600"/>
-    <p><em>1. Secure API Setup & Model Selection</em></p>
-  </div>
-  <br/>
-  <div style="display: flex; gap: 20px; justify-content: center; align-items: flex-start;">
-    <div style="width: 45%;">
-      <img src="client/public/chat-model-options.png" alt="Chat Interface" style="width: 100%;"/>
-      <p><em>2. Chat Interface & Model Settings</em></p>
-    </div>
-    <div style="width: 45%;">
-      <img src="client/public/usage-cost.png" alt="Usage Costs" style="width: 100%;"/>
-      <p><em>3. Real-time Cost Telemetry</em></p>
-    </div>
-  </div>
-</div>
+## Interface
+
+<table width="100%">
+  <tr>
+    <td align="center" width="33%">
+      <img src="client/public/model-popup.png" alt="Model Selection" style="width: 100%; border-radius: 5px;"/>
+      <br/>
+      <sub><strong>1. Secure Setup</strong></sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="client/public/chat-model-options.png" alt="Chat Interface" style="width: 100%; border-radius: 5px;"/>
+      <br/>
+      <sub><strong>2. Chat Interface</strong></sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="client/public/usage-cost.png" alt="Usage Costs" style="width: 100%; border-radius: 5px;"/>
+      <br/>
+      <sub><strong>3. Cost Tracking</strong></sub>
+    </td>
+  </tr>
+</table>
 
 ## The Why
 Developers often need to prototype with high-end models (GPT-4o, o1) but lack visibility into the compounding costs of long sessions. **TokenAudit** solves this by providing:
