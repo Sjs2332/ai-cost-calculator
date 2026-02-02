@@ -6,6 +6,17 @@
 ![React](https://img.shields.io/badge/react-18-blue)
 ![OpenAI](https://img.shields.io/badge/openai-proxy-green)
 
+## Interface
+
+<div align="center">
+  <img src="client/public/chat-model-options.png" alt="Chat Interface" width="800"/>
+  <br/><br/>
+  <div style="display: flex; gap: 10px; justify-content: center;">
+    <img src="client/public/model-popup.png" alt="Model Selection" width="48%"/>
+    <img src="client/public/usage-cost.png" alt="Usage Costs" width="48%"/>
+  </div>
+</div>
+
 ## The Why
 Developers often need to prototype with high-end models (GPT-4o, o1) but lack visibility into the compounding costs of long sessions. **TokenAudit** solves this by providing:
 1.  **Real-time Cost telemetry**: Tracks input/output tokens per turn with calculating running totals.
