@@ -8,20 +8,22 @@
 
 ## Interface
 
+## Interface
+
 <div align="center">
   <div>
-    <img src="client/public/chat-model-options.png" alt="Chat Interface" width="800"/>
-    <p><em>Chat Interface & Model Settings</em></p>
+    <img src="client/public/model-popup.png" alt="Model Selection" width="600"/>
+    <p><em>1. Secure API Setup & Model Selection</em></p>
   </div>
   <br/>
-  <div style="display: flex; gap: 10px; justify-content: center; align-items: flex-start;">
-    <div style="width: 48%;">
-      <img src="client/public/model-popup.png" alt="Model Selection" style="width: 100%;"/>
-      <p><em>Secure API Setup & Model Selection</em></p>
+  <div style="display: flex; gap: 20px; justify-content: center; align-items: flex-start;">
+    <div style="width: 45%;">
+      <img src="client/public/chat-model-options.png" alt="Chat Interface" style="width: 100%;"/>
+      <p><em>2. Chat Interface & Model Settings</em></p>
     </div>
-    <div style="width: 48%;">
+    <div style="width: 45%;">
       <img src="client/public/usage-cost.png" alt="Usage Costs" style="width: 100%;"/>
-      <p><em>Real-time Cost Telemetry</em></p>
+      <p><em>3. Real-time Cost Telemetry</em></p>
     </div>
   </div>
 </div>
