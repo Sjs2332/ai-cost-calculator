@@ -1,66 +1,112 @@
-# ⚡️ TokenAudit
-### Stateless, Privacy-First Cost Tracking for LLM Inference
+# ⚙️ Text-to-CAD  
+### Generate real parametric CAD models from natural language
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![TypeScript](https://img.shields.io/badge/typescript-5.6-blue)
-![React](https://img.shields.io/badge/react-18-blue)
-![OpenAI](https://img.shields.io/badge/openai-proxy-green)
+🎥 **Demo:**  
+https://github.com/Sjs2332/Text-to-.step/blob/main/text_to_step_generator_demo.mp4
 
-## Interface
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
+![Next.js](https://img.shields.io/badge/Next.js-16-black)
+![React](https://img.shields.io/badge/React-19-61dafb)
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.125-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-<table width="100%">
-  <tr>
-    <td align="center" width="33%">
-      <img src="client/public/model-popup.png" alt="Model Selection" style="width: 100%; border-radius: 5px;"/>
-      <br/>
-      <sub><strong>1. Secure Setup</strong></sub>
-    </td>
-    <td align="center" width="33%">
-      <img src="client/public/chat-model-options.png" alt="Chat Interface" style="width: 100%; border-radius: 5px;"/>
-      <br/>
-      <sub><strong>2. Chat Interface</strong></sub>
-    </td>
-    <td align="center" width="33%">
-      <img src="client/public/usage-cost.png" alt="Usage Costs" style="width: 100%; border-radius: 5px;"/>
-      <br/>
-      <sub><strong>3. Cost Tracking</strong></sub>
-    </td>
-  </tr>
-</table>
+## What this is
 
-## The Why
-Developers often need to prototype with high-end models (GPT-4o, o1) but lack visibility into the compounding costs of long sessions. **TokenAudit** solves this by providing:
-1.  **Real-time Cost telemetry**: Tracks input/output tokens per turn with calculating running totals.
-2.  **Privacy by Design**: API keys are held transiently in the client; the server acts as a blind proxy.
-3.  **No Database**: Zero setup. State is managed entirely in compliance-friendly session memory.
+**Text-to-CAD** converts natural language into **true parametric CAD models** (STEP/STL).  
+Not meshes. Not approximations. Real B-Rep solids generated directly in FreeCAD.
+
+Type:  
+> “A 100mm x 60mm mounting bracket with 4 M5 holes”  
+
+Get:  
+A fully editable, dimensioned CAD part in under a minute.
+
+## Why it exists
+
+Most “text-to-3D” tools generate meshes.  
+Engineers need **parametric solids** they can actually modify and manufacture.
+
+Text-to-CAD solves this by:
+- Generating native FreeCAD Python (not STL hallucinations)
+- Extracting dimensions as constraints
+- Retrying automatically on geometry failures
+
+## Core features
+
+**Native B-Rep generation**  
+Generates real parametric solids via FreeCAD kernel execution.
+
+**Two-stage LLM pipeline**  
+Prompt → structured spec → FreeCAD Python → geometry validation.
+
+**Self-correcting**  
+Automatically retries on failed geometry (~80% success on complex parts).
+
+**Parametric control**  
+Dimensions become editable constraints without regenerating.
+
+**Iterative design**  
+Conversation context allows incremental edits to existing parts.
+
+**Zero-install**  
+Runs fully in browser. No CAD software on client.
+
+**Secure execution**  
+All code runs in isolated Docker containers with no network access.
 
 ## Architecture
-Designed as a lightweight, drop-in tool for development teams.
--   **Frontend**: React + Vite + Shadcn/UI for a high-performance, accessible interface.
--   **Backend**: Express.js proxy to sign requests without exposing keys to the client logger.
--   **State Management**: React Context (`SessionProvider`) calculates costs client-side to reduce server load.
--   **Security**: `x-api-key` header injection ensures keys are never stored on disk.
 
-## Quick Start
+Built like a real production system, not a demo.
+
+**Frontend**  
+Next.js 16 + React 19 + React Three Fiber for real-time 3D preview.
+
+**Backend**  
+FastAPI with Gemini-based two-stage generation pipeline.
+
+**Execution layer**  
+FreeCAD Python runs inside Docker:
+- no network
+- 1 CPU, 512MB RAM
+- read-only filesystem
+- non-root user
+
+**Security model**  
+Ephemeral containers. No persistence. No server-side key storage.
+
+## Quick start
 
 ```bash
-# 1. Clone
-git clone https://github.com/yourusername/token-audit.git
+# Clone
+git clone <repo-url>
+cd Text-to-.step
 
-# 2. Install
-npm install
-
-# 3. Run
-npm run dev
+# Run
+bash start.sh      # macOS / Linux
+.\start.ps1       # Windows
 ```
 
-## Features
--   **Model-Aware Pricing**: Dynamically switches pricing logic based on selected model (e.g., GPT-4o vs O1 vs Mini).
--   **Context-Aware Chat**: Preserves full conversation history in-memory for accurate token counting.
--   **Zero-Config**: No auth, no database, no migrations. Just run and query.
+Open: http://localhost:3000/app  
+Paste your Google Gemini API key.
 
-## Tech Stack
--   **Core**: TypeScript, Node.js, React
--   **UI**: TailwindCSS, Shadcn/UI, Lucide Icons
--   **Routing**: Wouter (Minimalist router)
--   **Build**: Vite + ESBuild
+## Tech stack
+
+**Core**  
+TypeScript, Node.js, Python 3.11
+
+**Frontend**  
+Next.js 16, React 19, Three.js, React Three Fiber
+
+**Backend**  
+FastAPI, Google Gemini, FreeCAD
+
+**Infra**  
+Docker (isolated execution)
+
+**UI**  
+TailwindCSS, Radix UI, Lucide
+
+## License
+
+MIT
