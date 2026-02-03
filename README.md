@@ -45,7 +45,7 @@ Designed as a lightweight, drop-in tool for development teams.
 
 ```bash
 # 1. Clone
-git clone https://github.com/yourusername/token-audit.git
+https://github.com/Sjs2332/ai-cost-calculator.git
 
 # 2. Install
 npm install
